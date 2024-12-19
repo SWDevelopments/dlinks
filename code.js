@@ -192,22 +192,10 @@ function addConversion(pubId, visitorId, offerId, offerType) {
 }
 
 var SmileyBanner = document.getElementById("SmileyBanner");
-var count = 15;
+var count = 2;
 var timerInterval;
-var Intervaltime = 2000;
+var Intervaltime = 1000;
 
-if (cookie_pub_plan_id == 12) {
-  Intervaltime = 1000;
-  $(document).ready(function() {
-    $(".VerifyBtn, .NextBtn").css("background-color", "#482dff");
-  });
-} else if (SmileyBanner) {
-  count = 10;
-  Intervaltime = 1000;
-} else {
-  count = 2;
-  Intervaltime = 1000;
-}
 
 function isPageVisible() {
   if (SmileyBanner) {
@@ -258,12 +246,10 @@ function SetAdCookie(){
 function timer() {
   count = count - 1;
 
-  if (cookie_pub_plan_id == 12) {
-    var progressBar = document.getElementById("gp_progress");
-    if (progressBar) {
-      var progress = ((15 - count) / 15) * 100;
-      progressBar.style.width = progress + "%";
-    }
+  var progressBar = document.getElementById("gp_progress");
+  if (progressBar) {
+    var progress = ((2 - count) / 2) * 100; // Changed to 2
+    progressBar.style.width = progress + "%";
   }
   
   if (count <= 0) {
